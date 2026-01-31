@@ -93,19 +93,26 @@ body{
 }
 }
 
-/* Link styling for nav */
-.site-header .describe a{
-   font-size 16px;
-      color:#111;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight:700;
-  text-decoration: none;  /* remove underline by default */
+
+/* NAV LINK LOOK (prevents purple/visited defaults) */
+.site-header .describe a,
+.site-header .describe a:link,
+.site-header .describe a:visited{
+  color: #111;              /* clean dark text */
+  text-decoration: none;    /* removes underline */
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 24px;
 }
 
-/* Hover gives feedback (UX principle: user knows it's clickable) */
-.site-header .describe a:hover{
+/* Hover/focus feedback (still shows it's clickable) */
+.site-header .describe a:hover,
+.site-header .describe a:focus{
   text-decoration: underline;
 }
+
+}
+
 
 /* =========================================================
    2) BANNER IMAGE STRIP
