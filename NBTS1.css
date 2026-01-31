@@ -94,7 +94,7 @@ body{
 }
 
 /* Link styling for nav */
-.site-header .describe a{
+.details .describe a{
   font-size: 24px;
   font-weight: 700;
   color: #111;
@@ -102,7 +102,7 @@ body{
 }
 
 /* Hover gives feedback (UX principle: user knows it's clickable) */
-.site-header .describe a:hover{
+.details .describe a:hover{
   text-decoration: underline;
 }
 
@@ -391,5 +391,9 @@ textarea{ resize: vertical; }
    }
    .details .describe a{
       font-size 16px;
+      color:#111;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:700;
+      text-decoration: underline;
    }
 }
