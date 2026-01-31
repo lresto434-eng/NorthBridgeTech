@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       HEAD SECTION
+
+       WHAT:
+       - metadata the browser needs before rendering the page
+
+       WHY:
+       - UTF-8 supports symbols/quotes safely
+       - viewport makes mobile responsive (CRUCIAL for phones)
+       - stylesheet links your CSS (your design)
+
+       WHEN:
+       - Every HTML page should include these basics
+  ========================================================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="NBTS.css" />
+  <title>Free Consultation | NorthBridge Tech Support</title>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HEADER + NAV (REUSE ON EVERY PAGE)
+
+       WHAT:
+       - top navigation bar
+
+       WHY:
+       - makes site feel like "one site" across pages
+       - links back to homepage sections correctly
+
+       IMPORTANT:
+       On subpages, use index.html#section (not just #section)
+       because #section only works on the SAME page.
+  ========================================================== -->
+  <header id="home">
+    <nav class="details">
+      <ul class="describe">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="consultation.html">Consultation</a></li>
+      </ul>
+
+      <!-- WHAT:
+           banner image
+           WHY:
+           consistent branding across pages
+      -->
+      <img src="simple.jpeg" alt="code" class="img">
+    </nav>
+  </header>
+
+
+  <!-- =========================================================
+       MAIN PAGE WRAPPER
+
+       WHAT: .container
+       WHY:
+       - limits line length so it’s readable
+       - adds consistent side padding on small screens
+       WHEN:
+       - all pages should wrap main content in a container
+  ========================================================== -->
+  <main class="container consult-page">
+
+    <!-- =====================================================
+         PAGE HERO (TITLE + SHORT EXPLANATION)
+
+         WHAT:
+         - tells user what this page is for in 2 seconds
+
+         WHY:
+         - people decide quickly whether to stay or leave
+  ====================================================== -->
+    <header class="consult-hero">
+      <h1>Free Tech Consultation</h1>
+      <p>
+        Tell me a little about your setup and what you’re experiencing.
+        I’ll review it and suggest a clear plan — no jargon, no pressure.
+      </p>
+    </header>
+
+
+    <!-- =====================================================
+         THE FORM
+
+         IMPORTANT CONCEPT:
+         A <form> is for collecting user input.
+         But a GitHub Pages static site cannot "send" the form
+         anywhere unless you connect it to:
+         - Formspree / Netlify Forms / a backend, etc.
+
+         For now:
+         - This form will DISPLAY and validate required fields
+         - The "submit" button won't email you anything by itself
+
+         WHEN:
+         - use forms for contact pages / signups / bookings
+    ====================================================== -->
+    <form class="consult-form" action="#" method="post">
+
+      <!-- ===================================================
+           FORM ROW
+
+           WHAT:
+           .form-row groups label + input together
+
+           WHY:
+           - keeps spacing consistent
+           - easier to style and maintain
+
+           ACCESSIBILITY (IMPORTANT):
+           label "for" must match input "id"
+           This lets users click the label to focus the input.
+      ==================================================== -->
+      <div class="form-row">
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="John Smith"
+          required
+        >
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="john@email.com"
+          required
+        >
+      </div>
+
+      <!-- ===================================================
+           SELECT DROPDOWN
+
+           WHAT:
+           <select> gives a fixed set of options
+
+           WHY:
+           - reduces typing
+           - gives you cleaner, predictable answers
+
+           WHEN:
+           - use when choices are limited and known
+      ==================================================== -->
+      <div class="form-row">
+        <label for="type">You are a:</label>
+        <select id="type" name="type">
+          <option>Small Business Owner</option>
+          <option>Freelancer</option>
+          <option>Home Office User</option>
+        </select>
+      </div>
+
+      <!-- ===================================================
+           TEXTAREA
+
+           WHAT:
+           multi-line text input
+
+           WHY:
+           - lets them explain the issue in their own words
+
+           WHEN:
+           - use for messages / descriptions
+      ==================================================== -->
+      <div class="form-row">
+        <label for="issue">What are you experiencing?</label>
+        <textarea
+          id="issue"
+          name="issue"
+          rows="5"
+          placeholder="Slow computer, Wi-Fi drops, printer issues..."
+        ></textarea>
+      </div>
+
+      <div class="form-row">
+        <label for="devices">Devices you use</label>
+        <input
+          type="text"
+          id="devices"
+          name="devices"
+          placeholder="Windows PC, MacBook, iPhone, Printer"
+        >
+      </div>
+
+      <div class="form-row">
+        <label for="time">Best time to reach you</label>
+        <input
+          type="text"
+          id="time"
+          name="time"
+          placeholder="Weekdays after 5pm"
+        >
+      </div>
+
+      <!-- ===================================================
+           FORM ACTIONS
+
+           WHAT:
+           area for your submit + secondary navigation
+
+           WHY:
+           - user sees the next step clearly
+           - layout wraps nicely on phones (with flex-wrap in CSS)
+      ==================================================== -->
+      <div class="form-actions">
+        <button type="submit" class="btn">Submit Consultation</button>
+
+        <!-- IMPORTANT:
+             This is a link, not a button.
+             Links navigate. Buttons submit actions.
+        -->
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+
+    </form>
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER (REUSE ON EVERY PAGE)
+
+       WHY:
+       - people scroll down to find contact and links
+       - makes the site feel real and complete
+  ========================================================== -->
+  <section class="footer">
+    <footer>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="consultation.html">Consultation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul>
+          <li>Computer Issues</li>
+          <li>Network Setup</li>
+          <li>Data Backup</li>
+          <li>Cybersecurity Basics</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>Email: hello@northbridge.example</p>
+        <p>Phone: +1 (555) 012-3456</p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 NorthBridge Tech Support. All rights reserved.</p>
+      </div>
+    </footer>
+  </section>
+
+</body>
+</html>

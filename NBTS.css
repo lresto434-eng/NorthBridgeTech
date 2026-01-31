@@ -1,0 +1,551 @@
+body{
+
+ 
+  padding: 0;
+margin:0;
+  background: radial-gradient(
+    circle at top left,
+    rgb(189, 189, 238),
+    rgba(85, 83, 145, 0.924),
+    rgba(63, 55, 151, 0.623)
+  );
+}
+.intro{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+}
+
+    
+
+
+.hero-content{
+    margin-right:-5px;
+}
+
+   
+
+
+.hero-card{
+  display: flex;             /* row of cards */
+  gap: 30px;
+  align-items: stretch;      /* equal height cards */
+  width: 100%;
+  margin-top: 40px;
+flex-wrap: wrap;              /* ✅ allow wrapping */
+}
+
+
+html, body{
+  overflow-x: hidden;
+}
+
+
+    
+
+.card-1, .card-2, .card-3{
+  flex: 1;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;             /* make each card a column layout */
+  flex-direction: column;
+   flex: 1 1 280px;   
+}
+.card-1 button,
+.card-2 button,
+.card-3 button{
+  margin-top: auto;          /* THIS pins it to the bottom */
+  align-self: flex-start;    /* keeps it left aligned */
+  background: rgba(255,255,255,0.06);
+}
+
+
+.card-4{
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 40px 0 0;   /* controlled spacing */
+  padding: 0;         /* remove padding-top */
+}
+
+    
+
+    
+@media (max-width: 600px){
+  nav a{
+    padding: 10px 16px 0 0;
+    font-size: 18px;
+  }
+
+  .hero-card{
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  .card-1, .card-2, .card-3{
+    padding: 18px;
+  }
+}
+
+
+    
+   
+/* The UL inside the nav */
+.describe{
+     flex-wrap: wrap; 
+  list-style: none;     /* remove bullets */
+  margin: 0;            /* REMOVE browser default margin */
+  padding: 0;           /* REMOVE browser default padding */
+  display: flex;        /* make the links go across */
+  gap: 20px;            /* spacing between links */
+  align-items: center;
+  background: radial-gradient(
+    circle at top left,
+    rgb(143, 184, 222),
+    rgba(73, 144, 198, 0.924),
+    rgba(12, 111, 232, 0.623)
+  );
+  padding: 20px 40px;   /* your intentional spacing */
+  justify-content: center;
+  margin:0;
+  width:100%;
+}
+
+.details{
+    color: blueviolet;
+    
+  width: 100%;
+  
+  box-sizing: border-box;
+  
+  
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+  nav a{
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 0;                 /* let UL gap control spacing */
+  color: rgba(40, 1, 1, 0.884);
+
+  text-decoration: none;
+}
+nav a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+.passage{
+   display:flex;
+    text-align: center;
+    justify-content:center;
+    font-size: 18px;
+    width:100%;
+   padding-right:30px;
+   flex-direction: column;
+   padding-left:12px;
+ 
+    
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+   
+}
+
+
+
+.mom{
+    display:flex;
+  
+
+}
+* { box-sizing: border-box; }
+.img{
+  width: 100%;
+  height: 75px;
+  display: block;       /* removes inline gap */
+  object-fit: cover;
+  border: 5px solid black;
+  box-sizing: border-box;
+  margin: 0;            /* no negative margin */
+}
+
+
+
+footer a{
+  font-size: 16px;
+  font-weight: normal;
+  padding: 0;
+  display: inline;
+}
+footer ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li{
+  margin-bottom: 8px;
+}
+footer{
+  display: flex;
+  gap: 60px;
+  padding: 60px 40px;
+  flex-wrap: wrap;   /* allow items to go onto new line */
+max-width: 1100px;
+  width: 100%;
+}
+
+.footer-bottom{
+  flex-basis: 100%;         /* take the whole row */
+  margin-top: 30px;
+}
+section.footer{
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.08);
+  padding-bottom: 30px;
+   display: flex;
+  justify-content: center;
+}
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================
+   GLOBAL IDEA
+   =========================
+   These styles are for your *sub-pages*:
+   - small-business.html
+   - home-office.html
+   - freelancers.html
+   - consultation.html
+
+   They create:
+   - a centered max-width layout (.container)
+   - reusable page sections (hero + grid cards)
+   - buttons that are actually <a> links styled like buttons
+   - a simple, consistent form layout
+
+   Why reusable?
+   Because real websites reuse the same “building blocks”
+   across pages for consistency and speed.
+*/
+
+
+/* =========================
+   1) CENTERED PAGE WRAPPER
+   ========================= */
+.container{
+  max-width: 1100px;     /* keeps content from stretching too wide on big screens */
+  margin: 0 auto;        /* centers the container horizontally */
+  padding: 0 16px;       /* adds space on left/right so content doesn't touch edges */
+}
+
+/* Why?
+   Long lines are hard to read (bad UX). max-width improves readability.
+   The padding prevents “edge hugging” on phones and small screens.
+
+   When to use:
+   Any time you want content to stay readable and centered.
+
+   Alternatives:
+   - max-width: 900px (more narrow)
+   - width: min(1100px, 100%);  (modern way)
+   - padding: clamp(12px, 4vw, 32px); (responsive padding)
+*/
+
+
+/* =========================
+   2) SERVICE PAGES LAYOUT
+   ========================= */
+.service-page{
+  padding: 28px 0 60px;  /* top/bottom breathing room */
+}
+
+/* Why?
+   Pages look cramped without vertical spacing.
+
+   Alternative:
+   You can use margin on inner sections instead,
+   but page padding is simpler and more consistent.
+*/
+
+
+/* Hero at the top of service pages */
+.service-hero{
+  text-align: center;    /* center headline + paragraph */
+  padding: 24px 16px;    /* inner spacing (so it doesn’t touch edges) */
+}
+
+.service-hero p{
+  max-width: 70ch;       /* keeps paragraph readable (ch ~ character width) */
+  margin: 0 auto;        /* center the paragraph block */
+  line-height: 1.5;      /* easier reading */
+}
+
+/* Why 70ch?
+   It keeps line length readable (~60–80 characters per line is ideal).
+
+   When to use:
+   Any long paragraph.
+
+   Alternatives:
+   - max-width: 600px
+   - max-width: 60rem
+*/
+
+
+/* CTA area: buttons/links under the hero text */
+.service-cta{
+  display: flex;         /* puts buttons in a row */
+  gap: 12px;             /* space between them */
+  justify-content: center; /* center the button row */
+  flex-wrap: wrap;       /* if the screen is narrow, buttons drop to new line */
+  margin-top: 12px;
+}
+
+/* Why flex-wrap?
+   Without it, buttons can overflow on phones.
+
+   When to use:
+   Any row of items that should wrap on small screens (buttons, tags, cards).
+*/
+
+
+/* =========================
+   3) CARD GRID FOR SUBPAGES
+   ========================= */
+.grid{
+  display: flex;          /* cards in a row */
+  flex-wrap: wrap;        /* allow wrapping to new row */
+  gap: 18px;              /* space between cards */
+  justify-content: center;/* center cards if fewer than 3 */
+  margin-top: 18px;
+}
+
+/* When to use flex grid:
+   - simple rows of cards
+   - you want wrapping automatically
+
+   Alternative: CSS grid
+   (better if you want strict columns)
+   Example:
+   .grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+*/
+
+
+/* Card style INSIDE the grid only */
+.grid .card{
+  flex: 1 1 280px;        /* key: grow, shrink, base width 280px */
+  max-width: 360px;       /* prevents giant stretched cards */
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.08);
+}
+
+/* Explanation of "flex: 1 1 280px":
+   - 1 (grow): card can expand to fill extra space
+   - 1 (shrink): card can shrink if needed
+   - 280px (basis): ideal starting width
+
+   When to use this:
+   Any responsive card layout where you want cards to wrap naturally.
+*/
+
+
+.grid .card ul,
+.grid .card ol{
+  padding-left: 18px;     /* indent list bullets/numbers */
+  line-height: 1.5;
+}
+
+
+/* =========================
+   4) BUTTONS (LINKS AS BUTTONS)
+   =========================
+   Why use <a> not <button>?
+   Because buttons are for actions (submit form, open modal).
+   Links are for navigation (go to another page/section).
+
+   So your “Find out More” should be an <a>.
+*/
+.btn{
+  display: inline-block;         /* allows padding like a button */
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;         /* remove underline */
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: #fff;
+}
+
+/* When to use:
+   Primary call-to-action: book, contact, start.
+
+   Alternatives:
+   - add box-shadow for more depth
+   - use transform: translateY(-1px) on hover for "lift"
+*/
+
+
+/* Outline button version */
+.btn-outline{
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.9);
+}
+
+
+/* Your "Find out More!" link styled like your old button */
+a.button-line{
+  display: inline-block;
+  margin-top: auto;              /* pushes this to bottom IF parent is flex column */
+  align-self: flex-start;        /* aligns to left inside card */
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  border: 1px solid #222;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+a.button-line:hover{
+  background: #fff;
+}
+
+/* IMPORTANT:
+   margin-top:auto only works if the card is:
+     display:flex;
+     flex-direction:column;
+
+   You already did that on the homepage cards.
+*/
+
+
+/* =========================
+   5) CONSULTATION PAGE FORM
+   ========================= */
+.consult-page{
+  padding: 28px 0 60px;
+}
+
+.consult-hero{
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.consult-hero p{
+  max-width: 70ch;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Form wrapper */
+.consult-form{
+  max-width: 650px;             /* forms look best not too wide */
+  margin: 20px auto 0;          /* center it */
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;       /* stack fields vertically */
+  gap: 12px;                    /* spacing between rows */
+}
+
+/* Each form row is label + input stacked */
+.form-row{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-row label{
+  font-weight: 600;
+}
+
+/* Inputs */
+.consult-form input,
+.consult-form select,
+.consult-form textarea{
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.9);
+  font-size: 14px;
+}
+
+/* Row of actions at bottom */
+.form-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;              /* buttons wrap on phone */
+  margin-top: 10px;
+}
+
+
+/* =========================
+   6) MOBILE TWEAKS
+   =========================
+   This triggers when screen is 600px wide or less.
+   Great for phones.
+*/
+@media (max-width: 600px){
+
+  .service-hero,
+  .consult-hero{
+    padding: 18px 10px;         /* reduce padding on phone */
+  }
+
+  .grid{
+    gap: 14px;                  /* slightly tighter spacing */
+  }
+
+  .grid .card{
+    max-width: 100%;            /* cards fill screen */
+  }
+
+  .consult-form{
+    padding: 14px;              /* less padding on phone */
+  }
+}
+
+/* When to use media queries:
+   Anytime your design breaks on small screens.
+
+   Alternatives:
+   - Use clamp() to reduce the need for media queries:
+     font-size: clamp(16px, 2vw, 20px);
+     padding: clamp(12px, 4vw, 24px);
+
+   - Use CSS Grid auto-fit:
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+*/
+

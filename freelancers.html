@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="NBTS.css" />
+  <title>Freelancer Support | NorthBridge Tech Support</title>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HEADER + NAVIGATION (REUSED ON EVERY PAGE)
+
+       WHAT:
+       This is the site navigation bar.
+
+       WHY:
+       - Keeps every page feeling like ONE site
+       - Lets user jump back to homepage sections
+
+       IMPORTANT GITHUB RULE:
+       Use index.html#section so links work from subpages.
+  ========================================================== -->
+  <header id="home">
+    <nav class="details">
+      <ul class="describe">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="consultation.html">Consultation</a></li>
+      </ul>
+
+      <!-- WHAT: Banner image
+           WHY: visually ties every page together
+      -->
+      <img src="simple.jpeg" alt="code" class="img" />
+    </nav>
+  </header>
+
+
+  <!-- =========================================================
+       MAIN CONTENT WRAPPER
+
+       WHAT: .container keeps content centered and readable
+       WHY: prevents text stretching across huge screens
+       WHEN: use on every page
+  ========================================================== -->
+  <main class="container service-page" id="top">
+
+    <!-- =====================================================
+         PAGE HERO SECTION
+
+         WHAT: Page title + description + call-to-action
+         WHY: User immediately understands what this page is for
+         WHEN: Every service page should start like this
+    ====================================================== -->
+    <header class="service-hero">
+      <h1>Freelancer Tech Support</h1>
+      <p>
+        Your laptop is your business. I help keep it fast, safe, backed up, and ready for deadlines.
+      </p>
+
+      <!-- =================================================
+           ACTION BUTTONS
+
+           WHAT: Primary action (consultation) + secondary (back)
+           WHY: Give user a next step immediately
+      ================================================== -->
+      <div class="service-cta">
+        <a class="btn" href="consultation.html">Book a Free Consult</a>
+
+        <!-- WHY index.html#services?
+             Because this page is not the homepage.
+             #services alone would do nothing here.
+        -->
+        <a class="btn btn-outline" href="index.html#services">Back to Services</a>
+      </div>
+    </header>
+
+
+    <!-- =====================================================
+         CARD GRID SECTION
+
+         WHAT: 3 cards side-by-side that wrap on phones
+         WHY: Humans scan in chunks, not paragraphs
+         HOW: Your CSS uses flex-wrap so these stack on mobile
+    ====================================================== -->
+    <section class="grid">
+
+      <!-- CARD 1 -->
+      <article class="card">
+        <h2>Performance</h2>
+
+        <!-- WHAT: Unordered list
+             WHY: Quick, scannable benefits
+             NOTE: These lists work because you scoped CSS
+                   and did NOT style all UL globally
+        -->
+        <ul>
+          <li>Speed &amp; startup cleanup</li>
+          <li>Storage management</li>
+          <li>Browser optimization</li>
+          <li>App conflicts + crashes</li>
+        </ul>
+      </article>
+
+
+      <!-- CARD 2 -->
+      <article class="card">
+        <h2>Workflow</h2>
+        <ul>
+          <li>Cloud sync (Drive/iCloud/Dropbox)</li>
+          <li>File naming &amp; folders</li>
+          <li>Client docs &amp; templates setup</li>
+          <li>Simple productivity stack</li>
+        </ul>
+      </article>
+
+
+      <!-- CARD 3 -->
+      <article class="card">
+        <h2>Reliability</h2>
+        <ul>
+          <li>Backup strategy</li>
+          <li>Security basics</li>
+          <li>Emergency “recovery plan”</li>
+          <li>Optional check-ins</li>
+        </ul>
+      </article>
+
+    </section>
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER (REUSED ON EVERY PAGE)
+
+       WHAT: Site map + trust info
+       WHY: Users scroll here to navigate or verify legitimacy
+  ========================================================== -->
+  <section class="footer">
+    <footer>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="consultation.html">Consultation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul>
+          <li>Computer Issues</li>
+          <li>Network Setup</li>
+          <li>Data Backup</li>
+          <li>Cybersecurity Basics</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>Email: hello@northbridge.example</p>
+        <p>Phone: +1 (555) 012-3456</p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 NorthBridge Tech Support. All rights reserved.</p>
+      </div>
+
+    </footer>
+  </section>
+
+</body>
+</html>
+
+<!-- =========================================================
+     THIS IS A "CARD LIST"
+
+     WHAT:
+     An unordered list (<ul>) of benefits for this service.
+
+     WHY THIS WORKS VISUALLY:
+     These bullet points stack vertically and look clean
+     because in your CSS you DID NOT write:
+
+         ul { display:flex; }
+
+     If you had, these items would appear in a ROW
+     and break the card layout.
+
+     LESSON:
+     Style lists with CLASSES (like .describe for nav),
+     not with the bare "ul" selector.
+
+     WHEN TO USE <ul>:
+     Any time you are listing features, benefits, or items
+     that do NOT have a specific order.
+
+     WHEN TO USE <ol>:
+     When steps MUST be followed in order (Step 1, 2, 3).
+
+========================================================= -->
+<ul>
+
+  <!-- =====================================================
+       WHAT IS &amp; ?
+
+       & is a RESERVED character in HTML.
+       It starts special codes called "entities".
+
+       So to SHOW a real & on the page, you must write:
+       &amp;
+
+       The browser converts this into: &
+
+       If you wrote:
+       Speed & startup
+       the browser might misread it as a command.
+
+       OTHER COMMON ENTITIES:
+       &lt;  means <
+       &gt;  means >
+  ====================================================== -->
+  <li>Speed &amp; startup cleanup</li>
+
+  <!-- WHAT: Each <li> is a list item
+       WHY: Makes content easy to scan quickly
+  -->
+  <li>Storage management</li>
+
+  <li>Browser optimization</li>
+
+  <li>App conflicts + crashes</li>
+
+</ul>
+
+
