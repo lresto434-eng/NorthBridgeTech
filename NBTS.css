@@ -1,0 +1,307 @@
+/* ===========================
+   GLOBAL RESET + BASE STYLES
+   WHY:
+   Browsers add default margins to body, h1, ul, etc.
+   Resetting makes layout predictable.
+=========================== */
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  /* Your background vibe */
+  background: radial-gradient(
+    circle at top left,
+    rgb(189, 189, 238),
+    rgba(85, 83, 145, 0.924),
+    rgba(63, 55, 151, 0.623)
+  );
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #111;
+}
+
+/* ===========================
+   LINKS
+   WHY:
+   Keep link styles consistent.
+=========================== */
+a{
+  color: rgba(40, 1, 1, 0.884);
+  text-decoration: underline;
+}
+
+a:hover{
+  opacity: 0.85;
+}
+
+/* ===========================
+   LAYOUT CONTAINER
+   WHAT:
+   Keeps content from becoming too wide.
+   WHEN:
+   Almost every modern website uses a container.
+=========================== */
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ===========================
+   HEADER / NAV
+   WHAT:
+   Same header on every page.
+   HOW:
+   - .nav-bar holds the links
+   - .banner holds the image at a controlled height
+=========================== */
+.site-header{
+  width: 100%;
+}
+
+/* The colored nav strip */
+.nav-bar{
+  background: radial-gradient(
+    circle at top left,
+    rgb(143, 184, 222),
+    rgba(73, 144, 198, 0.924),
+    rgba(12, 111, 232, 0.623)
+  );
+
+  border-bottom: 3px solid rgba(0,0,0,0.35);
+}
+
+/* UL is the parent of LI. Flex goes on UL to line items up. */
+.nav-list{
+  list-style: none;
+  margin: 0;
+  padding: 18px 22px;
+
+  display: flex;              /* makes li items sit in a row */
+  gap: 28px;                  /* space between links */
+  align-items: center;
+}
+
+/* The banner "window"
+   WHY:
+   You asked to make the banner shorter.
+   This is the best way:
+   - set a fixed height
+   - hide overflow
+   - image covers without distortion (object-fit:cover)
+*/
+.banner{
+  height: 240px;              /* CHANGE THIS to shrink/grow banner height */
+  overflow: hidden;
+  border-bottom: 3px solid rgba(0,0,0,0.35);
+}
+
+.banner img{
+  width: 100%;
+  height: 100%;
+  display: block;             /* removes tiny bottom gap under images */
+  object-fit: cover;          /* crops image to fit the banner box */
+  object-position: center;    /* choose what part of image is visible */
+}
+
+/* ===========================
+   HERO SECTION (TITLE + PARAGRAPH + CTA)
+=========================== */
+.hero{
+  padding: 26px 0 10px;
+  text-align: center;
+}
+
+.hero h1{
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.hero p{
+  margin: 0 auto;
+  max-width: 72ch;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.btn-row{
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Buttons (anchor or button tag can use same class) */
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.25);
+  background: #f2f2f2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover{ opacity: 0.9; }
+
+.btn-outline{
+  background: transparent;
+}
+
+/* ===========================
+   CARDS GRID (3 columns)
+   WHAT:
+   The 3 cards you created.
+   HOW:
+   Use CSS grid so it wraps nicely on mobile.
+=========================== */
+.card-grid{
+  margin: 22px auto 8px;
+  display: grid;
+  gap: 16px;
+
+  /* 3 columns when space allows; otherwise it wraps */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card{
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: rgba(245, 245, 220, 0.90); /* beige-ish */
+}
+
+/* Optional: make the middle card stand out like your brown one */
+.card.feature{
+  background: rgba(204, 119, 15, 0.55);
+}
+
+.card h2{
+  margin-top: 0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.card p{
+  line-height: 1.45;
+}
+
+/* Small button inside cards */
+.card .btn{
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+/* ===========================
+   SECTION DIVIDER TEXT
+=========================== */
+.divider-text{
+  text-align: center;
+  margin: 22px 0 10px;
+  font-weight: 800;
+  text-decoration: underline;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ===========================
+   FOOTER
+   WHAT:
+   Same footer across pages.
+=========================== */
+.site-footer{
+  margin-top: 30px;
+  padding: 26px 0;
+  background: rgba(0,0,0,0.08);
+  border-top: 1px solid rgba(0,0,0,0.18);
+}
+
+.footer-grid{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.footer-col h3{
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.footer-col ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li{
+  margin: 6px 0;
+}
+
+.footer-bottom{
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ===========================
+   CONSULTATION PAGE FORM
+=========================== */
+.form-wrap{
+  width: min(720px, 92%);
+  margin: 18px auto 0;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.10);
+}
+
+/* Each label+input block */
+.form-row{
+  margin: 12px 0;
+}
+
+label{
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+input, select, textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.25);
+  outline: none;
+  font-size: 15px;
+}
+
+textarea{
+  resize: vertical;
+}
+
+.form-actions{
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===========================
+   MOBILE TWEAKS
+   WHY:
+   So it doesn't break on phones.
+=========================== */
+@media (max-width: 900px){
+  .card-grid{ grid-template-columns: 1fr; }
+  .footer-grid{ grid-template-columns: 1fr; }
+  .banner{ height: 180px; } /* auto shrink on mobile */
+}
