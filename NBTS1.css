@@ -89,6 +89,8 @@ body{
   justify-content: center;/* centers the whole group */
   align-items: center;    /* vertical alignment inside the bar */
   gap: 80px;              /* space between links (cleaner than margins) */
+    flex-wrap: wrap;   /* ✅ this is the only thing you add */
+}
 }
 
 /* Link styling for nav */
