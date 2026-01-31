@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    META TAGS
+    ---------------------------------------------------------
+    charset UTF-8:
+    - Allows special characters (smart quotes, symbols, etc.)
+    viewport:
+    - Makes the page responsive (mobile devices size correctly)
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    CSS LINK (shared stylesheet)
+    ---------------------------------------------------------
+    WHY:
+    - All pages use the same NBTS.css so styling stays consistent.
+    - For GitHub Pages: keep it relative (no leading /)
+  -->
+  <link rel="stylesheet" href="NBTS1.css" />
+  <title>NorthBridge Tech Support</title>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER / NAV / BANNER
+       ===================================================== -->
+  <header id="home" class="site-header">
+
+    <!--
+      NAVIGATION
+      ---------------------------------------------------------
+      Uses <nav> for semantic meaning (screen readers, SEO).
+      Uses <ul><li> because menus are lists.
+      CSS converts this list into a horizontal navbar.
+    -->
+    <nav class="details">
+      <ul class="describe">
+        <!-- Anchor links jump to sections on THIS page -->
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <!-- Normal link goes to another HTML page -->
+        <li><a href="consultation.html">Consultation</a></li>
+      </ul>
+    </nav>
+
+    <!-- Banner strip (full width image bar) -->
+    <div class="banner">
+      <img src="simple.jpeg" alt="Tech banner" class="banner-img" />
+    </div>
+  </header>
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-title">NorthBridge Tech Support</h1>
+
+      <p class="hero-text">
+        Northern Bridge Tech Support helps small businesses, freelancers, and home offices stay focused on what they do best by taking the
+        stress out of technology. From fixing everyday computer issues to setting up reliable networks, securing data backups, and implementing
+        practical cybersecurity basics, we provide clear, dependable support without the jargon.
+      </p>
+
+      <!-- A call-to-action link -->
+      <a class="hero-link" href="consultation.html">Book a Call!</a>
+    </section>
+
+    <!-- ===================================================
+         SERVICES (cards)
+         =================================================== -->
+    <section id="services" class="cards">
+
+      <!-- Card 1 -->
+      <article class="card card-light">
+        <h2>Small Businesses</h2>
+        <p>
+          Reliable tech support for small teams — troubleshooting, setup, backups, and basic security.
+        </p>
+        <a class="btn" href="small-business1.html">Find out More!</a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card card-mid">
+        <h2>Home Offices</h2>
+        <p>
+          Simple, stable setups that just work — Wi-Fi, printers, work apps, and clean organization.
+        </p>
+        <a class="btn" href="home-office1.html">Find out More!</a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card card-light">
+        <h2>Freelancers</h2>
+        <p>
+          Fast, secure systems so you can meet deadlines — performance tuning, reliability, and protection.
+        </p>
+        <a class="btn" href="freelancers1.html">Find out More!</a>
+      </article>
+
+    </section>
+
+    <!-- ===================================================
+         PRICING (mock pricing)
+         =================================================== -->
+    <section id="pricing" class="pricing">
+      <h2>Pricing</h2>
+      <p class="muted">
+        Simple options. Clear expectations. No pressure. (Mock pricing — adjust anytime.)
+      </p>
+
+      <div class="cards">
+        <article class="card card-light">
+          <h3>Quick Fix</h3>
+          <p class="price">$49</p>
+          <ul>
+            <li>30-minute remote session</li>
+            <li>1 issue focus (Wi-Fi, printer, slow computer)</li>
+            <li>Simple next steps checklist</li>
+          </ul>
+          <a class="btn" href="consultation1.html">Start with a Consult</a>
+        </article>
+
+        <article class="card card-mid">
+          <h3>Full Tune-Up</h3>
+          <p class="price">$129</p>
+          <ul>
+            <li>90-minute session</li>
+            <li>Performance + cleanup</li>
+            <li>Updates + basic security check</li>
+            <li>Backup recommendation</li>
+          </ul>
+          <a class="btn" href="consultation.html">Book a Consult</a>
+        </article>
+
+        <article class="card card-light">
+          <h3>Monthly Support</h3>
+          <p class="price">$79/mo</p>
+          <ul>
+            <li>Priority support (email)</li>
+            <li>1 scheduled session per month</li>
+            <li>Maintenance + check-ins</li>
+          </ul>
+          <a class="btn" href="consultation.html">Ask About It</a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER (contact anchor target)
+       ===================================================== -->
+  <footer id="contact" class="footer">
+
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <!-- These jump to sections on the homepage -->
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+
+          <!-- This goes to another page -->
+          <li><a href="consultation.html">Consultation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul>
+          <li>Computer Issues</li>
+          <li>Network Setup</li>
+          <li>Data Backup</li>
+          <li>Cybersecurity Basics</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>Email: hello@northbridge.example</p>
+        <p>Phone: +1 (555) 012-3456</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 NorthBridge Tech Support. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
