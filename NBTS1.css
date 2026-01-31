@@ -95,9 +95,10 @@ body{
 
 /* Link styling for nav */
 .site-header .describe a{
-  font-size: 24px;
-  font-weight: 700;
-  color: #111;
+   font-size 16px;
+      color:#111;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:700;
   text-decoration: none;  /* remove underline by default */
 }
 
