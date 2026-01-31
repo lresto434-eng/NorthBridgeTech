@@ -94,7 +94,7 @@ body{
 }
 
 /* Link styling for nav */
-.details .describe a{
+.site-header .describe a{
   font-size: 24px;
   font-weight: 700;
   color: #111;
@@ -102,7 +102,7 @@ body{
 }
 
 /* Hover gives feedback (UX principle: user knows it's clickable) */
-.details .describe a:hover{
+.site-header .describe a:hover{
   text-decoration: underline;
 }
 
