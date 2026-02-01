@@ -342,10 +342,17 @@ body{
   flex-direction: column;
 }
 
-/* Push the button to the bottom of the card */
+/* Remove default list spacing inside cards (this is the hidden culprit) */
+.card ul{
+  margin-bottom: 0;
+}
+
+/* Keep buttons from stretching/acting weird inside flex cards */
 .card .btn{
   margin-top: auto;
+  align-self: flex-start;
 }
+
 
 
 
