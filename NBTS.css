@@ -418,7 +418,8 @@ body{
   background: rgba(255,255,255,0.10);
 }
 
-.form-row{ margin-bottom: 14px; }
+.form-row{ margin-bottom: 14px; 
+         text-align:left;}
 
 .form-row label{
   display: block;
@@ -639,7 +640,9 @@ body{
 /* Mobile: pricing becomes one column
    WHY: prevents tiny unreadable columns on phones. */
 @media (max-width: 900px){
-  .pricing-grid{
-    grid-template-columns: 1fr;
-  }
+  .cards{ grid-template-columns: 1fr; }
+  .footer-grid{ grid-template-columns: 1fr; }
+  .site-header .describe{ gap: 24px; padding: 14px 0; }
+  .site-header .describe a{ font-size: 20px; }
+}
 }
