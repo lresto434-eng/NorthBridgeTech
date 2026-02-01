@@ -362,6 +362,12 @@ body{
   margin-top: auto;       /* THIS pins it to the bottom */
   align-self: flex-start; /* keeps button from stretching */
 }
+/* Add extra bottom space ONLY to the first two pricing cards */
+.pricing .cards .card:nth-child(1) ul,
+.pricing .cards .card:nth-child(2) ul{
+  padding-bottom: 18px;
+}
+
 
 
 
