@@ -1,0 +1,645 @@
+/* =========================================================
+   NBTS.css  (ONE stylesheet used by ALL pages)
+   ---------------------------------------------------------
+   BIG IDEA / PRINCIPLE:
+   - Consistency wins.
+     If every page uses the same class names + structure,
+     you write CSS ONCE and your whole site stays aligned.
+
+   This file styles:
+   - Header/nav bar
+   - Banner image strip
+   - Main container widths
+   - Hero section (title + paragraph + call-to-action)
+   - Cards grid (3-column layout)
+   - Button system
+   - Consultation form card
+   - Footer grid (3 columns)
+   - Mobile responsiveness
+   ========================================================= */
+
+
+/* =========================================================
+   0) GLOBAL RESET / NORMALIZATION
+   ========================================================= */
+
+/* * selector means “all elements”.
+   WHAT it does:
+   - box-sizing: border-box means when you set width/height,
+     padding + border are included inside that size.
+   WHY:
+   - Without border-box, padding makes boxes larger than expected.
+   WHEN:
+   - Always. This is standard modern CSS practice.
+   PRINCIPLE:
+   - Predictable sizing prevents layout “mystery bugs”. */
+* { box-sizing: border-box; }
+
+/* HTML tag:
+   WHAT:
+   - scroll-behavior: smooth makes anchor jumps (#services etc)
+     glide instead of teleport.
+   WHY:
+   - Feels modern/polished.
+   WHEN:
+   - When you have internal “jump links”.
+   PRINCIPLE:
+   - Small UX improvements make a site feel more professional. */
+html { scroll-behavior: smooth; }
+
+
+/* =========================================================
+   1) BODY / BACKGROUND / GLOBAL TEXT
+   ========================================================= */
+
+/* body affects the entire visible page.
+   WHAT:
+   - margin:0 removes browser default outer white space.
+   - padding:0 ensures you control spacing yourself.
+   - font-family sets default font site-wide.
+   - background gives your purple gradient.
+   - color sets default text color.
+   WHY:
+   - Browsers add margin by default → causes unwanted borders.
+   - Setting font once avoids repeating it in every class.
+   WHEN:
+   - Always set body margin:0 on custom sites.
+   PRINCIPLE:
+   - “Global defaults” belong on body, not repeated everywhere. */
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", serif;
+
+  /* WHAT:
+     - radial-gradient creates a soft background blend.
+     WHY:
+     - Looks more premium than a flat single color.
+     PRINCIPLE:
+     - Background should be subtle enough to not fight the text. */
+  background: radial-gradient(circle at top left,
+    rgb(189, 189, 238),
+    rgba(85, 83, 145, 0.924),
+    rgba(63, 55, 151, 0.623)
+  );
+
+  color: #111; /* dark text for readability */
+}
+
+
+/* =========================================================
+   2) HEADER + NAV BAR
+   ========================================================= */
+
+/* .site-header is your top bar + banner zone.
+   WHAT:
+   - background is a blue gradient bar behind nav.
+   - margin/padding reset ensures no unexpected gaps.
+   WHY:
+   - Makes nav area clearly “header”.
+   WHEN:
+   - Use on every page header so it matches.
+   PRINCIPLE:
+   - Same header on every page builds trust + consistency. */
+.site-header{
+  background: linear-gradient(to bottom, #3B6FA8, #4F86C6);
+  margin: 0;
+  padding: 0;
+}
+
+/* .describe is the UL holding your nav links.
+   HTML pattern:
+     <nav class="details">
+       <ul class="describe">
+         <li><a href="...">...</a></li>
+       </ul>
+     </nav>
+
+   WHAT:
+   - margin:0 removes default UL top spacing.
+   - padding: 18px 0 creates “bar height” breathing room.
+   - list-style:none removes bullet points.
+   - display:flex makes the LI line up in a row.
+   - justify-content:center centers the nav group.
+   - align-items:center aligns vertically.
+   - gap creates space between links.
+   WHY:
+   - UL is semantic (meaningful HTML) for menus.
+   - Flex makes layout clean and controllable.
+   WHEN:
+   - Use flex when you want items in a row with easy spacing.
+   PRINCIPLE:
+   - “Layout controls spacing.” Use gap, not random margins. */
+.site-header .describe{
+  margin: 0;
+  padding: 18px 0;
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+/* Link styling inside nav:
+   WHAT:
+   - size/weight for readability
+   - color and remove underline for clean look
+   WHY:
+   - default blue underlined links look “unfinished”
+   WHEN:
+   - Style links if you want a designed header.
+   PRINCIPLE:
+   - Remove underline by default, add underline on hover for clarity. */
+.site-header .describe a{
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+}
+
+/* hover state:
+   WHAT:
+   - adds underline only when user hovers
+   WHY:
+   - gives a signal “this is clickable”
+   PRINCIPLE:
+   - Interactive elements should show feedback. */
+.site-header .describe a:hover{
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   3) BANNER IMAGE STRIP
+   ========================================================= */
+
+/* .banner is the wrapper.
+   WHAT:
+   - width:100% makes it stretch across page.
+   - display:block prevents inline spacing issues.
+   WHY:
+   - images can create weird baseline gaps if treated as inline.
+   PRINCIPLE:
+   - Wrappers for images make sizing more reliable. */
+.banner{ width: 100%; display: block; }
+
+/* .banner-img is the actual image.
+   WHAT:
+   - display:block removes baseline whitespace under images.
+   - width:100% stretches full screen.
+   - height:80px forces a consistent strip height.
+   - object-fit:cover crops the image nicely without distortion.
+   - borders add clean separation lines.
+   WHY:
+   - Without display:block you often see a tiny gap below image.
+   - object-fit is the modern way to crop images.
+   WHEN:
+   - Use object-fit: cover when you want “banner cropping”.
+   PRINCIPLE:
+   - Consistent header visuals improves brand feel. */
+.banner-img{
+  display: block;
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-top: 3px solid rgba(0,0,0,0.35);
+  border-bottom: 3px solid rgba(0,0,0,0.35);
+}
+
+
+/* =========================================================
+   4) MAIN CONTENT CONTAINER
+   ========================================================= */
+
+/* .container is your “centered page” wrapper.
+   WHAT:
+   - width:min(1100px, 92%) means:
+       max width 1100px, but on small screens use 92% of screen.
+   - margin:0 auto centers horizontally.
+   - padding adds breathing room inside.
+   WHY:
+   - Prevents content from touching the screen edges.
+   WHEN:
+   - Use a container whenever you want readable, centered layouts.
+   PRINCIPLE:
+   - Readability: limit line length and add space. */
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 28px;
+}
+
+
+/* =========================================================
+   5) HERO SECTION
+   ========================================================= */
+
+.hero{
+  /* WHAT:
+     - centers text so the hero looks “headline-like”.
+     WHY:
+     - Hero is your pitch. Centering makes it feel like a landing page. */
+  text-align: center;
+  padding: 18px 0 10px;
+}
+
+.hero-title{
+  /* WHAT:
+     - remove default margin at top, add controlled margin below.
+     WHY:
+     - default heading margins can create inconsistent spacing. */
+  margin: 0 0 12px;
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.hero-text{
+  /* WHAT:
+     - max-width keeps paragraph from becoming too wide.
+     WHY:
+     - long line length is hard to read.
+     PRINCIPLE:
+     - Typography: readable line length increases quality instantly. */
+  margin: 0 auto;
+  max-width: 900px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero-link{
+  /* WHAT:
+     - inline-block allows margin/padding like a button.
+     WHY:
+     - anchors are inline by default; inline ignores vertical spacing.
+     WHEN:
+     - Use inline-block when you need spacing control on links. */
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: purple;
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   6) BUTTON SYSTEM
+   ========================================================= */
+
+/* .btn is a reusable “component”.
+   WHAT:
+   - inline-block so it behaves like a button and respects padding
+   - padding/border/background give a “button look”
+   - cursor:pointer gives hand pointer
+   WHY:
+   - Consistency: every button looks the same.
+   WHEN:
+   - Always create a standard button class.
+   PRINCIPLE:
+   - Reusable components reduce mistakes and speed development. */
+.btn{
+  display: inline-block;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 2px solid rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.85);
+  color: #111;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* .btn-outline is a “variation”
+   WHAT:
+   - transparent background but keeps same padding/sizing
+   WHY:
+   - Secondary actions should look less strong than primary actions.
+   PRINCIPLE:
+   - Visual hierarchy: primary > secondary. */
+.btn-outline{
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.35);
+  color: #111;
+}
+
+/* .btn-row is a layout helper for buttons.
+   WHAT:
+   - flex row with gap
+   - wraps on small screens
+   WHY:
+   - prevents buttons from overflowing on mobile. */
+.btn-row{
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   7) CARDS GRID (HOME + SUBPAGES)
+   ========================================================= */
+
+/* .cards is the grid wrapper.
+   WHAT:
+   - 3 equal columns using CSS Grid.
+   - gap controls space between cards.
+   WHY:
+   - Grid is best for “rows and columns” layout.
+   WHEN:
+   - Use grid when you want a true column layout.
+   PRINCIPLE:
+   - Pick the correct tool:
+     Flex = one-dimensional (row OR column)
+     Grid = two-dimensional (rows AND columns) */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 22px;
+}
+
+/* .card is the reusable card base style.
+   WHAT:
+   - border and radius create “card”
+   - padding gives inner space
+   - transparent background shows gradient behind
+   WHY:
+   - Cards are a common UI pattern; easy scanning.
+   PRINCIPLE:
+   - Components should be reusable and consistent. */
+.card{
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 14px;
+  padding: 22px;
+  background: rgba(255,255,255,0.10);
+}
+
+/* “tone” classes for future variation
+   WHAT:
+   - currently same, but you can change later. */
+.card-light{ background: rgba(255,255,255,0.10); }
+.card-mid{   background: rgba(255,255,255,0.10); }
+
+
+/* =========================================================
+   8) PRICING SECTION SPACING
+   ========================================================= */
+.pricing{
+  margin-top: 24px;
+}
+
+
+/* =========================================================
+   9) CONSULTATION FORM CARD
+   ========================================================= */
+
+/* .form-wrap centers the form card.
+   WHAT:
+   - display:flex + justify-content:center centers horizontally.
+   WHY:
+   - keeps form centered even on wide monitors.
+   PRINCIPLE:
+   - Forms should be easy to read and visually contained. */
+.form-wrap{
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+/* The form itself styled like a card */
+.form-wrap form{
+  width: min(720px, 100%);
+  padding: 22px;
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.10);
+}
+
+.form-row{ margin-bottom: 14px; }
+
+.form-row label{
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* Inputs:
+   WHAT:
+   - width:100% makes them fill the form width.
+   - padding gives comfortable typing space.
+   - font-family:inherit keeps same font as site.
+   WHY:
+   - Consistent input styling improves usability. */
+.form-row input,
+.form-row select,
+.form-row textarea{
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid rgba(0,0,0,0.20);
+  background: rgba(255,255,255,0.85);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+/* .form-actions lays out submit + back buttons */
+.form-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   10) FOOTER (WORKS WITH .footer OR .site-footer)
+   ========================================================= */
+
+/* We style both .footer and .site-footer for compatibility.
+   WHY:
+   - Your pages used both names at different times.
+   PRINCIPLE:
+   - Backwards compatibility avoids layout breaking. */
+.footer,
+.site-footer{
+  margin-top: 40px;
+  padding: 28px 0 40px;
+  border-top: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Footer grid:
+   WHAT:
+   - 3 columns using grid.
+   WHY:
+   - quick links / services / contact line up cleanly. */
+.footer-grid{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.footer ul,
+.site-footer ul{
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer li,
+.site-footer li{ margin: 8px 0; }
+
+.footer a,
+.site-footer a{
+  color: rgba(40, 1, 1, 0.884);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-bottom{
+  width: min(1100px, 92%);
+  margin: 18px auto 0;
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   11) MOBILE RESPONSIVE RULES
+   ========================================================= */
+
+/* WHY:
+   - 3 columns on a phone becomes cramped.
+   - nav gap must shrink so links fit.
+   PRINCIPLE:
+   - Mobile-first thinking: make sure it still works at small widths. */
+@media (max-width: 900px){
+  .cards{ grid-template-columns: 1fr; }
+  .footer-grid{ grid-template-columns: 1fr; }
+
+  .site-header .describe{
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .hero-title{ font-size: 34px; }
+}
+/* =========================================================
+   PRICING SECTION (MOCK)
+   ========================================================= */
+
+/* Title style reused for sections
+   WHY: consistent typography looks professional. */
+.section-title{
+  margin: 26px 0 8px;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+/* Subtitle (helper text)
+   WHY: sets context + reduces uncertainty about pricing. */
+.section-subtitle{
+  margin: 0 0 18px;
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+/* Pricing grid layout
+   WHAT:
+   - display:grid creates equal columns
+   - gap controls space between cards
+   WHY:
+   - Side-by-side comparison is easy.
+   WHEN:
+   - Use grid when you want structured columns. */
+.pricing-grid{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* Base pricing card
+   WHAT:
+   - similar “card” styling so it matches your site
+   WHY:
+   - consistency across cards sections */
+.price-card{
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 14px;
+  padding: 22px;
+  background: rgba(255,255,255,0.10);
+}
+
+/* Plan name */
+.price-name{
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* Price amount:
+   WHY: the price should visually pop as the “main data”. */
+.price-amount{
+  margin: 0;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+/* Note under price */
+.price-note{
+  margin: 6px 0 16px;
+  opacity: 0.85;
+  font-weight: 600;
+}
+
+/* Feature list */
+.price-features{
+  margin: 0 0 18px;
+  padding-left: 18px; /* keep bullets readable */
+  line-height: 1.7;
+}
+
+/* Featured card (Most Popular)
+   WHAT:
+   - slightly stronger border + subtle highlight
+   WHY:
+   - draws attention to the “recommended” plan.
+   PRINCIPLE:
+   - visual hierarchy nudges decision-making. */
+.price-card-featured{
+  border: 2px solid rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.14);
+  position: relative; /* enables badge positioning */
+}
+
+/* Badge:
+   WHAT: small label at the top of the featured card
+   WHY: makes it obvious which one you recommend */
+.badge{
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  border: 2px solid rgba(0,0,0,0.20);
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+/* Disclaimer text */
+.pricing-disclaimer{
+  margin-top: 16px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Mobile: pricing becomes one column
+   WHY: prevents tiny unreadable columns on phones. */
+@media (max-width: 900px){
+  .pricing-grid{
+    grid-template-columns: 1fr;
+  }
+}
