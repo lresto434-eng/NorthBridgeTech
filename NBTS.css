@@ -342,16 +342,17 @@ body{
   flex-direction: column;
 }
 
-/* Remove default list spacing inside cards (this is the hidden culprit) */
+/* THIS is the key */
 .card ul{
+  flex-grow: 1;       /* list takes extra space */
   margin-bottom: 0;
 }
 
-/* Keep buttons from stretching/acting weird inside flex cards */
+/* Button just sits after the list */
 .card .btn{
-  margin-top: auto;
   align-self: flex-start;
 }
+
 /* The row that holds the 3 pricing cards */
 .pricing .cards{
   display: flex;
