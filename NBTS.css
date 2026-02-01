@@ -352,6 +352,18 @@ body{
   margin-top: auto;
   align-self: flex-start;
 }
+/* The row that holds the 3 pricing cards */
+.pricing .cards{
+  display: flex;
+  gap: 24px;
+  align-items: stretch;   /* ✅ THIS is the missing piece */
+}
+
+/* Make each card take equal width and actually stretch */
+.pricing .cards .card{
+  flex: 1;                /* equal widths */
+}
+
 
 
 
