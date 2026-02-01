@@ -26,6 +26,8 @@
      mysterious gaps and layout bugs.
    - Resetting makes your design consistent across browsers.
    ========================================================= */
+body { outline: 12px solid red !important; }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
