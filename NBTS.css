@@ -336,6 +336,17 @@ body{
   gap: 14px;
   flex-wrap: wrap;
 }
+/* Make every card a vertical flex container */
+.card{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Push the button to the bottom of the card */
+.card .btn{
+  margin-top: auto;
+}
+
 
 
 /* =========================================================
